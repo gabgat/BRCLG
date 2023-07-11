@@ -7,6 +7,7 @@ void startMenu();
 void quitMenu();
 void fileOptions();
 void framesOptions();
+void engineOptions();
 //-------------------------------
 
 //-VARIABLES---------------------
@@ -174,4 +175,8 @@ void framesOptions(){
         cout << "ERROR: Number not valid. Retry";
         framesOptions();
     }
+}
+
+void engineOptions(){
+
 }

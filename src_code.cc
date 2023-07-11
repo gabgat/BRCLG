@@ -5,12 +5,14 @@ using namespace std;
 //-FUNCTIONS---------------------
 void startMenu();
 void quitMenu();
+void programPath();
 void fileOptions();
 void framesOptions();
 void engineOptions();
 //-------------------------------
 
 //-VARIABLES---------------------
+string blenderPath;
 string inputPath;
 string outputPath;
 string fileName;
@@ -33,11 +35,12 @@ void startMenu(){
     cout << "WELCOME TO THE BLENDER RENDERER SCRIPT GENERATOR!" << endl
     << "-------------------------------------------------"
     << endl << endl
-    << "1.\tFile Options" << endl
-    << "2.\tFrames Options" << endl
-    << "3.\tRender Engine" << endl
-    << "4.\tSpecify CPU Threads To Use" << endl
-    << "5.\tBuild And Run" << endl
+    << "1.\tBlender Program Path" << endl
+    << "2.\tFile Options" << endl
+    << "3.\tFrames Options" << endl
+    << "4.\tRender Engine" << endl
+    << "5.\tSpecify CPU Threads To Use" << endl
+    << "6.\tBuild And Run" << endl
     << endl
     << "0.\tQuit Program" << endl
     << endl;
@@ -45,19 +48,21 @@ void startMenu(){
     cin >> menuOption;
 
     if(menuOption == 1){
-        fileOptions();
+        programPath();
     }else if(menuOption == 2){
-        framesOptions();
+        fileOptions();
     }else if(menuOption == 3){
-        
+        framesOptions();
     }else if(menuOption == 4){
         
     }else if(menuOption == 5){
         
+    }else if(menuOption == 6){
+
     }else if(menuOption == 0){
         quitMenu();
     }else{
-        cout << "Number not valid, retry";
+        cout << "Number not valid, retry" << endl;
         startMenu();
     }
     
@@ -66,6 +71,17 @@ void startMenu(){
 void quitMenu(){
     system("CLS");
     exit(0);
+}
+
+void programPath(){
+    system("CLS");
+    cout << "Set the path of Blender (remember blender.exe at the end)" << endl << endl
+    << "Current path: " << blenderPath << endl
+    << "Blender Path: ";
+    blenderPath.clear();
+    cin >> blenderPath;
+    blenderPath.insert(0, "\"") += "\"";
+    startMenu();
 }
 
 void fileOptions(){
@@ -84,9 +100,9 @@ void fileOptions(){
     << "0.\tBack" << endl
     << endl
     << endl
-    << "Input Path: " + inputPath << endl
-    << "Output Path: " + outputPath << endl
-    << "Output File Name: " + fileName << endl << endl;
+    << "Input Path: " << inputPath << endl
+    << "Output Path: " << outputPath << endl
+    << "Output File Name: " << fileName << endl << endl;
     cin >> menuOption;
 
     if(menuOption == 1){
